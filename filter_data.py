@@ -27,19 +27,8 @@ def ticker2fn(ticker):
     ticker.lower();
     ticker = ticker + ".*"
     return ticker
-
-tickers = []
-
-for stock in SnP500:
-    ticker = stock[0];
-    ticker = ticker2fn(ticker);
-    tickers.append(ticker)
     
 
-# paths = find_patterns(tickers, 'Data/')
-
-for path in paths:
-    shutil.copy2(path[0], 'Data/SnP500/')
 
 
 

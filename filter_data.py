@@ -33,25 +33,31 @@ def ticker2fn(ticker):
 # frames
 def read_data(path, sep: str):
     data_frames = []
+    file_names = []
     for file in os.listdir(path):
         if file[-4:] == '.csv':
-            data_frames.append(pandas.read_csv(path + '/' + file ,sep=sep))
+            file_names.append(file[:-4])
+            data_frames.append(pandas.read_csv(path + '/' + file, sep=sep))
     
-    return data_frames
-    
+    return data_frames, file_names
         
 # converts a list of data frames to a numpy array
-def convert_dataset(data_frames: list, columns: list) -> np.array:
+# uses 2D if column
+def convert_dataset(data_frames: list, df_columns: list) -> np.array:
     num_rows = len(data_frames)
     num_cols = data_frames[0].shape[0]
     
-    if len(columns) > 1:
-        n_array = np.zeros((num_rows, num_cols, len(columns)))
+    # if there's more than one column per data frame use 3D array
+    if len(df_columns) > 1:
+        n_array = np.zeros((num_rows, num_cols, len(df_columns)))
     else:
         n_array = np.zeros((num_rows, num_cols))
     
     for i, data_frame in enumerate(data_frames):
-        n_array[i] = data_frame.as_matrix(columns).reshape(num_cols)
-    
+        if len(df_columns) > 1:
+            n_array[i] = data_frame.as_matrix(df_columns).reshape((num_cols, len(df_columns)))
+        else:
+            n_array[i] = data_frame.as_matrix(df_columns).reshape(num_cols)
+            
     return n_array
 

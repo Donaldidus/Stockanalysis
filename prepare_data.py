@@ -31,15 +31,18 @@ def ticker2fn(ticker):
     
 # reads all csv files in the given directory and returns a list of the data 
 # frames
-def read_data(path, sep: str):
+def read_data(path, sep: str, usecols=None):
     data_frames = []
     file_names = []
     for file in os.listdir(path):
         if file[-4:] == '.csv':
             file_names.append(file[:-4])
-            data_frames.append(pandas.read_csv(path + '/' + file, sep=sep))
+            data_frames.append(pandas.read_csv(path + '/' + file, sep=sep, usecols=usecols))
+            
+    data_frame = pandas.concat(data_frames, axis=1)
+    data_frame.columns = file_names
     
-    return data_frames, file_names
+    return data_frame, file_names
         
 # converts a list of data frames to a numpy array
 # uses 2D if column

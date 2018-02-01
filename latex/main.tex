@@ -1,0 +1,45 @@
+\documentclass[11pt,paper=a4]{article}
+
+% packages
+\usepackage{titling}
+
+
+\title{Stock Analysis}
+\author{Jan D. Busse}
+
+
+
+\begin{document}
+	
+	\maketitle
+%	\begin{titlepage}
+%		\centering
+%		
+%		{\scshape\Large Report \par}
+%		\vspace{1cm}
+%		{\huge\bfseries \thetitle \par}
+%		
+%		\vfill
+%		
+%		{\Large \theauthor \par}
+%		
+%		\vspace{1cm}
+%		
+%		% Bottom of the page
+%		{\large \today \par}
+%	\end{titlepage}
+
+	\begin{abstract}
+		Companies, or rather their stocks, get grouped by industries. A widely used industry taxonomy is the Global Industry Classification Standard (GICS). This report examines if the classifications proposed by the GICS can be found while applying machine learning algorithms to the stock prize data. Therefore stocks from the S\&P~500 in 2017 are analyzed and the results then are opposed to the GICS classification of the same stocks.
+	\end{abstract}
+	
+	\input{chapter/introduction.tex}
+	
+	\input{chapter/preparing-data.tex}
+	
+	\input{chapter/cluster-algorithms.tex}
+	
+	
+	
+	
+\end{document}

@@ -1,0 +1,20 @@
+% subsection K-Means
+
+\subsection{K-Means}\label{sec:k-means}
+
+For the first run k-means was applied directly to the untouched stock prizes. That means the distance between two stocks is defined by
+
+\begin{equation}\label{eq:dist-direct}
+d_{i,j} = \sum^{n}_{k = 1} {(p_{i,k} - p_{j,k})^2},
+\end{equation}
+
+where $p_{i,k}$ is the closing prize of stock $i$ on day $k$ and $n$ the total number of days in the dataset. In simpler terms, the distance of two stocks is defined by the squared area in between both charts.
+
+% k-means, euclidean direct on stock prize
+\input{tables/k-means/euc-direct.tex}
+
+Table~\ref{tbl:k-means-euc-direct} pictures the crosstab between the GICS classification on the left and the clusters determined by the k-means algorithm at the top. A Chi-squared contingency test results in a $\chi^2$ value of $113.58$, which corresponds to a p-value of $0.1667$. Thus the Null hypothesis that the GICS classification and k-means cluster are stochastically independent of each other cannot be discarded on a 5~\% level of significance. This means that there is no significant correspondence between the GICS classes and the clusters found by k-means.
+
+A possible cause for the lack of equivalence could be the way the distance is calculated. Equation~\ref{eq:dist-direct} uses the absolute stock prizes. That way the distance of two stocks with a similar trend can be bigger, due to large differences in the absolute stock prize, than between two stocks with different progression but close stock prizes.
+
+

@@ -8,13 +8,19 @@ For the first run k-means was applied directly to the untouched stock prizes. Th
 d_{i,j} = \sum^{n}_{k = 1} {(p_{i,k} - p_{j,k})^2},
 \end{equation}
 
-where $p_{i,k}$ is the closing prize of stock $i$ on day $k$ and $n$ the total number of days in the dataset. In simpler terms, the distance of two stocks is defined by the squared area in between both charts.
+where $p_{i,k}$ is the closing prize of stock $i$ on day $k$ and $n$ the total number of days in the dataset. In simpler terms, the distance of two stocks is defined by the squared area in between both charts. Figure~\ref{fig:appl-vs-msft} shows the distance for the stocks of Apple and Microsoft.
+
+\begin{figure}\label{fig:appl-vs-msft}
+	\centering
+	\input{figures/k-means/appl-vs-msft.pgf}
+	\caption{Stock prizes of Apple and Microsoft during 2017}
+\end{figure}
 
 % k-means, euclidean direct on stock prize
 \input{tables/k-means/euc-direct.tex}
 
 Table~\ref{tbl:k-means-euc-direct} pictures the crosstab between the GICS classification on the left and the clusters determined by the k-means algorithm at the top. A Chi-squared contingency test results in a $\chi^2$ value of $113.58$, which corresponds to a p-value of $0.1667$. Thus the Null hypothesis that the GICS classification and k-means cluster are stochastically independent of each other cannot be discarded on a 5~\% level of significance. This means that there is no significant correspondence between the GICS classes and the clusters found by k-means.
 
-A possible cause for the lack of equivalence could be the way the distance is calculated. Equation~\ref{eq:dist-direct} uses the absolute stock prizes. That way the distance of two stocks with a similar trend can be bigger, due to large differences in the absolute stock prize, than between two stocks with different progression but close stock prizes.
+A possible cause for the lack of equivalence could be the way the distance is calculated. Equation~\ref{eq:dist-direct} uses the absolute stock prizes. That way the distance of two stocks with a similar trend can be bigger, due to large differences in the absolute stock prize, than between two stocks with different development but close stock prizes. Imagine the Apple stock from figure~\ref{fig:appl-vs-msft} would be flipped left to right and then compare it to the original trend. Even tough the trends of these stocks is the exact opposite, the area between them will be less than the blue area in figure~\ref{fig:appl-vs-msft}.
 
-
+To further investigate that assumption it's necessary to compare the trends of the two stocks to each other. Therefore the 

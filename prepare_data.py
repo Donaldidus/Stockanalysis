@@ -9,6 +9,7 @@ Select data
 import os, fnmatch
 import pandas
 import numpy as np
+import statsmodels.api as sm
 
 def find(pattern, path):
     result = []
@@ -63,4 +64,3 @@ def convert_dataset(data_frames: list, df_columns: list) -> np.array:
             n_array[i] = data_frame.as_matrix(df_columns).reshape(num_cols)
             
     return n_array
-

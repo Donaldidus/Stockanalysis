@@ -706,7 +706,7 @@
 \pgftext[x=4.115406in,y=0.288889in,,top]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont 250}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=2.407118in,y=0.110000in,,top]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont Days}%
+\pgftext[x=2.407118in,y=0.110000in,,top]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont days}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -819,7 +819,7 @@
 \pgftext[x=0.207292in,y=2.144471in,left,base]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont 175}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgftext[x=0.151736in,y=1.343750in,,bottom,rotate=90.000000]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont Stock Prize [\$]}%
+\pgftext[x=0.151736in,y=1.343750in,,bottom,rotate=90.000000]{\rmfamily\fontsize{10.000000}{12.000000}\selectfont stock prize in dollar}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.512847in}{0.386111in}}{\pgfqpoint{3.788542in}{1.915278in}} %

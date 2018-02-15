@@ -17,14 +17,32 @@ where $p_{i,k}$ is the closing prize of stock $i$ on day $k$ and $n$ the total n
 \begin{figure}\label{fig:appl-vs-msft}
 	\centering
 	\input{figures/k-means/appl-vs-msft.pgf}
-	\caption{Stock prizes of Apple and Microsoft during 2017}
+	\caption{Stock prizes of Apple and Microsoft during 2017.}
 \end{figure}
 
 % k-means, euclidean direct on stock prize
 \input{tables/k-means/euc-direct.tex}
 
-Table~\ref{tbl:k-means-euc-direct} pictures the crosstab between the GICS classification on the left and the clusters determined by the k-means algorithm at the top. A Chi-squared contingency test results in a $\chi^2$ value of $113.58$, which corresponds to a p-value of $0.1667$. Thus the Null hypothesis that the GICS classification and k-means cluster are stochastically independent of each other cannot be discarded on a 5~\% level of significance. This means that there is no significant correspondence between the GICS classes and the clusters found by k-means.
+Table~\ref{tbl:k-means-euc-direct} pictures the crosstab between the GICS classification on the left and the clusters determined by the k-means algorithm at the top. A chi-squared contingency test results in a $\chi^2$ value of $113.58$, which corresponds to a p-value of $0.1667$. Thus the Null hypothesis, that the GICS classification and k-means cluster are stochastically independent, cannot be discarded on a 5~\% level of significance. This means that there is no significant correspondence between the GICS classes and the clusters found by k-means.
 
 A possible cause for the lack of equivalence could be the way the distance is calculated. Equation~\ref{eq:dist-direct} uses the absolute stock prizes. That way the distance of two stocks with a similar trend can be bigger, due to large differences in the absolute stock prize, than between two stocks with different development but close stock prizes. Imagine the Apple stock from figure~\ref{fig:appl-vs-msft} would be flipped left to right and then compare it to the original trend. Even tough the trends of these stocks is the exact opposite, the area between them will be less than the blue area in figure~\ref{fig:appl-vs-msft}.
 
-To further investigate that assumption it's necessary to compare the trends of the two stocks to each other. Therefore the 
+To further investigate that assumption it's necessary to take offset and amplitude into consideration. Offset refers to different stock prizes in the first place. The stock price for Apple starts at \$116, the one of Microsoft at \$63. But we are not interested in the absolute difference rather if both stocks develop the same way from there. Adjusting the stock price by the it's mean over the whole year of 2017 will remove the offset. But different amplitudes remain. Imagine both stocks would rise by ten percent. Then Apple's stock would be at \$128 and Microsoft's at \$69 which results in a difference of \$59. Before the difference was \$53, so the difference increased even tough both stocks grew at the same scale. To scale the amplitude we will divide the offset adjusted stock prices by the standard deviation over the whole year. The adjusted price is calculated by 
+
+\begin{equation}\label{eq:off-amp-adj}
+	p_{adj, k} = \frac{p_k - \overline{p}}{\sigma_p}
+\end{equation}
+
+where $p_k$ is the closing prize of the stock on day $k$, $\overline{p}$ the mean of all stock prizes for that stock and $\sigma_p$ the standard deviation.
+
+\begin{figure}\label{fig:appl-vs-msft_adj}
+	\centering
+	\input{figures/k-means/appl-vs-msft_adj.pgf}
+	\caption{Adjusted stock prizes of Apple and Microsoft during 2017.}
+\end{figure}
+
+After the adjustment the k-means algorithm is run again. It's results are shown in Table~\ref{tbl:k-means-offset-amplitude}. The contingency test concludes in a $\chi^2$ value of $274.80$, corresponding to a p-value of less than $0.001$. Therefore in this case the cluster centers found by the k-means algorithm are highly correlated to the sectors defined by GICS.
+
+% state that test states very clear correlation, even tough it's hard to see when looking at the table itself (one would assume a single high value in each row/column)
+
+\input{tables/k-means/offset-amplitude.tex}

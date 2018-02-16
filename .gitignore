@@ -1,2 +1,6 @@
 Data/*
 workspace/*
+
+*.bbl
+*.blg
+*.out

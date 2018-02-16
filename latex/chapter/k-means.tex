@@ -1,10 +1,10 @@
 % subsection K-Means
 
-\subsection{K-Means}\label{sec:k-means}
+\subsection{k-means}\label{sec:k-means}
 
 % Maybe list the sectors here or in the introduction!
 
-Why K-Means? K-Means is a good spot to start when clustering. It is fast and one of the major downfalls, the number of clusters must be known in advance, is no problem in this case. Since we are looking for the GICS sectors, we assume the number of clusters is the same as GICS proposes, which are eleven major sectors. 
+Why k-means? k-means is a good spot to start when clustering. It is fast and one of the major downfalls, the number of clusters must be known in advance, is no problem in this case. Since we are looking for the GICS sectors, we assume the number of clusters is the same as GICS proposes, which are eleven major sectors\cite{lloyd1982least}.
 
 For the first run k-means was applied directly to the untouched stock prizes. That means the distance between two stocks is defined by
 
@@ -41,7 +41,7 @@ where $p_k$ is the closing prize of the stock on day $k$, $\overline{p}$ the mea
 	\caption{Adjusted stock prizes of Apple and Microsoft during 2017.}
 \end{figure}
 
-After the adjustment the k-means algorithm is run again. It's results are shown in Table~\ref{tbl:k-means-offset-amplitude}. The contingency test concludes in a $\chi^2$ value of $274.80$, corresponding to a p-value of less than $0.001$. Therefore in this case the cluster centers found by the k-means algorithm are highly correlated to the sectors defined by GICS.
+After the adjustment the k-means algorithm is run again. It's results are shown in table~\ref{tbl:k-means-offset-amplitude}. The contingency test concludes in a $\chi^2$ value of $274.80$, corresponding to a p-value of less than $0.001$. Therefore in this case the cluster centers found by the k-means algorithm are highly correlated to the sectors defined by GICS.
 
 % state that test states very clear correlation, even tough it's hard to see when looking at the table itself (one would assume a single high value in each row/column)
 

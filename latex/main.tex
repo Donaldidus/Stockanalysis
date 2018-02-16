@@ -4,6 +4,12 @@
 \usepackage{titling}
 \usepackage{pgf}
 
+\usepackage{booktabs}
+
+\usepackage{footnote}
+\usepackage{hyperref}
+
+\usepackage{blindtext}
 
 \title{Stock Analysis}
 \author{Jan D. Busse}
@@ -31,7 +37,7 @@
 %	\end{titlepage}
 
 	\begin{abstract}
-		Companies, or rather their stocks, get grouped by industries. A widely used industry taxonomy is the Global Industry Classification Standard (GICS). This report examines if the classifications proposed by the GICS can be found while applying machine learning algorithms to the stock prize data. Therefore stocks from the S\&P~500 in 2017 are analyzed and the results then are opposed to the GICS classification of the same stocks.
+		Companies, or rather their stocks, get grouped by industries. A widely used industry taxonomy is the Global Industry Classification Standard (GICS)\footnote{\hyperlink{https://www.msci.com/gics}{https://www.msci.com/gics}}. This report examines if the classifications proposed by the GICS can be found while applying machine learning algorithms to the stock prize data. Therefore stocks from the S\&P~500 in 2017 are analyzed and the results are compared to the GICS classification of the same stocks.
 	\end{abstract}
 	
 	\input{chapter/introduction.tex}
@@ -40,7 +46,9 @@
 	
 	\input{chapter/cluster-algorithms.tex}
 	
+	\clearpage
 	
-	
+	\bibliographystyle{plain}
+	\bibliography{bibliography}
 	
 \end{document}

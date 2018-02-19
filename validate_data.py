@@ -5,6 +5,8 @@ Created on Tue Jan 30 22:55:36 2018
 @author: Jan
 """
 import pandas as pd
+import scipy.stats as stats
+import sklearn.metrics as metrics
 
 
 def stock_sectors(df, ticker='Ticker symbol', gics='GICS Code') -> dict:
@@ -39,3 +41,15 @@ def sectors(cluster_center, tickers, gics: dict) -> pd.DataFrame:
         gics_ordered.append(gics[ticker.upper()])
     
     return pd.DataFrame(data=[tickers, cluster_center, gics_ordered]).transpose()
+
+
+# runs all current tests on the data
+def run_tests(reference, cluster):
+    # compute crosstab of reference data and cluster
+    crosstab = pd.crosstab(reference, cluster)
+    # chi squared contingency test with chi sq statistic
+    stats.chi2_contingency(crosstab)
+    # G-test
+    stats.chi2_contingency(crosstab, lambda_="log-likelihood")
+    # Ajusted Rand Index
+    metrics.adjusted_rand_score(reference, cluster)

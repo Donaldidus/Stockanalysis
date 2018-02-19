@@ -41,8 +41,15 @@ where $p_k$ is the closing prize of the stock on day $k$, $\overline{p}$ the mea
 	\caption{Adjusted stock prizes of Apple and Microsoft during 2017.}
 \end{figure}
 
-After the adjustment the k-means algorithm is run again. It's results are shown in table~\ref{tbl:k-means-offset-amplitude}. The contingency test concludes in a $\chi^2$ value of $274.80$, corresponding to a p-value of less than $0.001$. Therefore in this case the cluster centers found by the k-means algorithm are highly correlated to the sectors defined by GICS.
-
-% state that test states very clear correlation, even tough it's hard to see when looking at the table itself (one would assume a single high value in each row/column)
+After the adjustment the k-means algorithm is run again. It's results are shown in table~\ref{tbl:k-means-offset-amplitude}. The contingency test concludes in a $\chi^2$ value of $274.80$, corresponding to a p-value of less than $0.001$. A G-Test result shows a similar test statistic. Therefore in this case the cluster centers found by the k-means algorithm seem to be highly correlated to the sectors defined by GICS.
 
 \input{tables/k-means/offset-amplitude.tex}
+
+Even tough the test statistics appear to be very well, looking at the crosstab in table~\ref{tbl:k-means-offset-amplitude} clearly shows, that there's no clear mapping between the cluster centers and the GICS sectors. The ideal result obviously would be one cluster per sector, but all clusters are actually scattered across the different sectors.
+
+To test this we can take the Rand Index into consideration~\cite{rand1971objective}. It measures the similarity of two data clusterings. In this case we use the Adjusted Rand Index (ADI)~\cite{hubert1985comparing}, that yields in a value between -1 and 1. In case the ADI is close to zero both clusterings do not agree in any way, whereas a value close to one states, that both clusterings are similar.
+
+The ADI for table~\ref{tbl:k-means-offset-amplitude} results in a value of 0.0368, which confirms our observation.
+
+
+

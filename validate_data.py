@@ -54,4 +54,10 @@ def run_tests(reference, cluster):
     # Ajusted Rand Index
     adi = metrics.adjusted_rand_score(reference, cluster)
     
-    return chi_sq, g_test, adi
+    hom_completeness_v_measure = metrics.homogeneity_completeness_v_measure(reference, cluster)
+    
+    ami = metrics.adjusted_mutual_info_score(reference, cluster)
+    
+    fms = metrics.fowlkes_mallows_score(reference, cluster)
+        
+    return chi_sq, g_test, (adi, hom_completeness_v_measure[0], hom_completeness_v_measure[1], hom_completeness_v_measure[2], ami, fms)

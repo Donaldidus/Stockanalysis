@@ -30,7 +30,7 @@ Moving on the goal is to improving the ARI score and the other metrics. Therefor
     <td class="tg-s6z2" rowspan="2">detrend</td>
     <td class="tg-s6z2" colspan="2">chi square<br>  contingency</td>
     <td class="tg-s6z2" colspan="2">G-Test</td>
-    <td class="tg-s6z2" rowspan="2">[ARI](https://en.wikipedia.org/wiki/Rand_index#Adjusted_Rand_index)</td>
+    <td class="tg-s6z2" rowspan="2"><a href="https://en.wikipedia.org/wiki/Rand_index#Adjusted_Rand_index">ARI</a></td>
     <td class="tg-s6z2" rowspan="2">homogeneity</td>
     <td class="tg-s6z2" rowspan="2">completeness</td>
     <td class="tg-s6z2" rowspan="2">v_measure</td>

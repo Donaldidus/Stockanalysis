@@ -48,8 +48,10 @@ def run_tests(reference, cluster):
     # compute crosstab of reference data and cluster
     crosstab = pd.crosstab(reference, cluster)
     # chi squared contingency test with chi sq statistic
-    stats.chi2_contingency(crosstab)
+    chi_sq = stats.chi2_contingency(crosstab)
     # G-test
-    stats.chi2_contingency(crosstab, lambda_="log-likelihood")
+    g_test = stats.chi2_contingency(crosstab, lambda_="log-likelihood")
     # Ajusted Rand Index
-    metrics.adjusted_rand_score(reference, cluster)
+    adi = metrics.adjusted_rand_score(reference, cluster)
+    
+    return chi_sq, g_test, adi

@@ -31,11 +31,11 @@ Moving on the goal is to improving the ARI score and the other metrics. Therefor
     <td class="tg-s6z2" colspan="2">chi square<br>  contingency</td>
     <td class="tg-s6z2" colspan="2">G-Test</td>
     <td class="tg-s6z2" rowspan="2"><a href="https://en.wikipedia.org/wiki/Rand_index#Adjusted_Rand_index">ARI</a></td>
-    <td class="tg-s6z2" rowspan="2">homogeneity</td>
-    <td class="tg-s6z2" rowspan="2">completeness</td>
-    <td class="tg-s6z2" rowspan="2">v_measure</td>
-    <td class="tg-s6z2" rowspan="2">AMI</td>
-    <td class="tg-baqh" rowspan="2">FM_score</td>
+    <td class="tg-s6z2" rowspan="2"><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.homogeneity_score.html#sklearn.metrics.homogeneity_score">homogeneity</a></td>
+    <td class="tg-s6z2" rowspan="2"><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.completeness_score.html#sklearn.metrics.completeness_score">completeness</a></td>
+    <td class="tg-s6z2" rowspan="2"><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.v_measure_score.html#sklearn.metrics.v_measure_score">v_measure</a></td>
+    <td class="tg-s6z2" rowspan="2"><a href="https://en.wikipedia.org/wiki/Adjusted_mutual_information">AMI</a></td>
+    <td class="tg-baqh" rowspan="2"><a href="https://en.wikipedia.org/wiki/Fowlkes%E2%80%93Mallows_index">FM_score</a></td>
   </tr>
   <tr>
     <td class="tg-s6z2">X^2</td>
@@ -147,12 +147,11 @@ Moving on the goal is to improving the ARI score and the other metrics. Therefor
   </tr>
 </table>
 
-## TODO
+### TODO
   - Include silhouette coefficient values in the table
 
-
-Python packages used right now:
-  - pandas
-  - numpy
-  - scikit-learn
-  - scipy
+Used libraries:
+  - [pandas](https://pandas.pydata.org/)
+  - [numpy](http://www.numpy.org/)
+  - [scikit-learn](http://scikit-learn.org/stable/)
+  - [scipy](https://www.scipy.org/)

@@ -1,8 +1,8 @@
 # Stock Clustering
 
-Welcome to my little Stock Analysis/Clustering. The goal here is to find patterns in stock data (price history) and compare them to their GICS classification. Therefore unsupervised learning algorithms are applied to the raw and/or pre-processed data. Beneath you can find a table with the current results, showing information about the algorithms used and scores when the results are run against the GICS classes.
+Welcome to my little Stock Analysis/Clustering. The goal here is to find patterns in stock data (price history) and compare them to their [GICS classification](https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard). Therefore unsupervised learning algorithms are applied to the raw and/or pre-processed data. Beneath you can find a table with the current results, showing information about the algorithms used and scores when the results are run against the GICS classes.
 
-Furthermore I'll add some thoughts on the results, my progress and what may be next as I move on, to keep you updated and as my own little roadmap. If you're interested you can find the current PDF file with more information in the latex folder. As this is work in progress, the results may not look pretty right now but I may come to that, in case the results are good enough. In case you have any suggestions on what to improve, I'd be happy if you hit me up.
+Furthermore I'll add some thoughts on the results, my progress and what may be next as I move on, to keep you updated and as my own little roadmap. If you're interested you can find the current [PDF](../latex/main.pdf) file with more information in the latex folder. As this is work in progress the results may not look pretty right now, but I may get to that in case the results are good enough. If you have any suggestions on what to improve, I'd be happy if you hit me up.
 
 ## Thoughts on Results
 
@@ -10,7 +10,7 @@ Furthermore I'll add some thoughts on the results, my progress and what may be n
 The first results, when applying ML algorithms on the raw data, yielded in very bad results. The results even failed the statstic contingency test. Adjusting offset and amplitude of the stocks increased the results significantly. Removing the trend from the data further improved the results.
 
 ### Current Problems
-Even tough the metrics displaying the performance against the GICS increased too, the results are far from satisfactory right now. E.g. the Adjusted Rand Index (ARI) is close to zero (best of now 0.06), which indicates that the cluster results are somewhat not similar to the GICS sectors at all (positive 1 would be a perfect match). 
+Even tough the metrics displaying the performance against the GICS increased too, the results are far from satisfactory right now. E.g. the [Adjusted Rand Index](https://en.wikipedia.org/wiki/Rand_index#Adjusted_Rand_index) (ARI) is close to zero (best of now 0.06), which indicates that the cluster are somewhat not similar to the GICS sectors at all (positive 1 would be a perfect match). 
 
 ### Moving On
 Moving on the goal is to improving the ARI score and the other metrics. Therefore it's necessary to determine why the score is so low. As both homogeneity and completeness score are similar, it's not clear what the problem is. Looking at the mean silhouette coefficient I noticed it's extremly low (close to zero), that would imply that either the euclidean distance measurement is not appropriate or the cluster algorithms applied are not able to seperate the data right. So next I'll look for different distance metrics and cluster algorithms.
@@ -30,7 +30,7 @@ Moving on the goal is to improving the ARI score and the other metrics. Therefor
     <td class="tg-s6z2" rowspan="2">detrend</td>
     <td class="tg-s6z2" colspan="2">chi square<br>  contingency</td>
     <td class="tg-s6z2" colspan="2">G-Test</td>
-    <td class="tg-s6z2" rowspan="2">ARI</td>
+    <td class="tg-s6z2" rowspan="2">[ARI](https://en.wikipedia.org/wiki/Rand_index#Adjusted_Rand_index)</td>
     <td class="tg-s6z2" rowspan="2">homogeneity</td>
     <td class="tg-s6z2" rowspan="2">completeness</td>
     <td class="tg-s6z2" rowspan="2">v_measure</td>

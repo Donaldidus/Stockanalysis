@@ -2,7 +2,7 @@
 
 Welcome to my little Stock Analysis/Clustering. The goal here is to find patterns in stock data (price history) and compare them to their [GICS classification](https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard). Therefore unsupervised learning algorithms are applied to the raw and/or pre-processed data. Beneath you can find a table with the current results, showing information about the algorithms used and scores when the results are run against the GICS classes.
 
-Furthermore I'll add some thoughts on the results, my progress and what may be next as I move on, to keep you updated and as my own little roadmap. If you're interested you can find the current [PDF](../latex/main.pdf) file with more information in the latex folder. As this is work in progress the results may not look pretty right now, but I may get to that in case the results are good enough. If you have any suggestions on what to improve, I'd be happy if you hit me up.
+Furthermore I'll add some thoughts on the results, my progress and what may be next as I move on, to keep you updated and as my own little roadmap. If you're interested you can find the current [PDF](/latex/main.pdf) file with more information in the latex folder. As this is work in progress the results may not look pretty right now, but I may get to that in case the results are good enough. If you have any suggestions on what to improve, I'd be happy if you hit me up.
 
 ## Thoughts on Results
 

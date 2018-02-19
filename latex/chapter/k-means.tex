@@ -47,7 +47,7 @@ After the adjustment the k-means algorithm is run again. It's results are shown 
 
 Even tough the test statistics appear to be very well, looking at the crosstab in table~\ref{tbl:k-means-offset-amplitude} clearly shows, that there's no clear mapping between the cluster centers and the GICS sectors. The ideal result obviously would be one cluster per sector, but all clusters are actually scattered across the different sectors.
 
-To test this we can take the Rand Index into consideration~\cite{rand1971objective}. It measures the similarity of two data clusterings. In this case we use the Adjusted Rand Index (ADI)~\cite{hubert1985comparing}, that yields in a value between -1 and 1. In case the ADI is close to zero both clusterings do not agree in any way, whereas a value close to one states, that both clusterings are similar.
+To test this we can take the Rand Index into consideration~\cite{rand1971objective}. It measures the similarity of two data clusterings. In this case we use the Adjusted Rand Index (ARI)~\cite{hubert1985comparing}, that yields in a value between -1 and 1. In case the ADI is close to zero both clusterings do not agree in any way, whereas a value close to one states, that both clusterings are similar.
 
 The ADI for table~\ref{tbl:k-means-offset-amplitude} results in a value of 0.0368, which confirms our observation.
 

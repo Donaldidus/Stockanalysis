@@ -4,54 +4,38 @@ Welcome to my little Stock Analysis/Clustering. The goal here is to find pattern
 
 Furthermore I'll add some thoughts on the results, my progress and what may be next as I move on, to keep you updated and as my own little roadmap. If you're interested you can find the current PDF file with more information in the latex folder. As this is work in progress, the results may not look pretty right now but I may come to that, in case the results are good enough. In case you have any suggestions on what to improve, I'd be happy if you hit me up.
 
-Python packages used right now:
-  - pandas
-  - numpy
-  - scikit-learn
-  - scipy
+## Thoughts on Results
 
-### Current Results
+### Done
+The first results, when applying ML algorithms on the raw data, yielded in very bad results. The results even failed the statstic contingency test. Adjusting offset and amplitude of the stocks increased the results significantly. Removing the trend from the data further improved the results.
 
-Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+### Current Problems
+Even tough the metrics displaying the performance against the GICS increased too, the results are far from satisfactory right now. E.g. the Adjusted Rand Index (ARI) is close to zero (best of now 0.06), which indicates that the cluster results are somewhat not similar to the GICS sectors at all (positive 1 would be a perfect match). 
 
-| index | preparation          |         | algorithm     | distance  | results                  |        |          |        |        |             |              |           |        |          |
-|-------|----------------------|---------|---------------|-----------|--------------------------|--------|----------|--------|--------|-------------|--------------|-----------|--------|----------|
-|       | offset & amplitude | detrend |               |           | chi square   contingency |        | G-Test   |        | ADI    | homogeneity | completeness | v_measure | AMI    | FM score |
-|       |                      |         |               |           | X^2                      | p-val  | G        | p-val  |        |             |              |           |        |          |
-| 1     | no                   | no      | k-means       | euclidean | 113.5868                 | 0.1668 | 116.1262 | 0.1291 | 0.0029 | 0.0518      | 0.0646       | 0.0575    | 0.0117 | 0.1499   |
-| 2     | yes                  | no      | k-means       | euclidean | 274.8038                 | 0.0000 | 276.2700 | 0.0000 | 0.0368 | 0.1232      | 0.1271       | 0.1251    | 0.0791 | 0.1593   |
-| 3     | yes                  | yes     | k-means       | euclidean | 426.6852                 | 0.0000 | 361.6610 | 0.0000 | 0.0588 | 0.1613      | 0.1617       | 0.1615    | 0.1192 | 0.1710   |
-| 4     | no                   | no      | agglomerative | euclidean | 111.0553                 | 0.2115 | 115.0035 | 0.1449 | 0.0047 | 0.0513      | 0.0685       | 0.0587    | 0.0116 | 0.1666   |
-| 5     | yes                  | no      | agglomerative | euclidean | 318.3593                 | 0.0000 | 327.7027 | 0.0000 | 0.0494 | 0.1461      | 0.1496       | 0.1479    | 0.1036 | 0.1633   |
-| 6     | yes                  | yes     | agglomerative | euclidean | 472.0161                 | 0.0000 | 395.4873 | 0.0000 | 0.0605 | 0.1764      | 0.1794       | 0.1779    | 0.1352 | 0.1737   |
+### Moving On
+Moving on the goal is to improving the ARI score and the other metrics. Therefore it's necessary to determine why the score is so low. As both homogeneity and completeness score are similar, it's not clear what the problem is. Looking at the mean silhouette coefficient I noticed it's extremly low (close to zero), that would imply that either the euclidean distance measurement is not appropriate or the cluster algorithms applied are not able to seperate the data right. So next I'll look for different distance metrics and cluster algorithms.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg .tg-s6z2{text-align:center}
-.tg .tg-baqh{text-align:center;vertical-align:top}
-.tg .tg-yw4l{vertical-align:top}
-</style>
+## Current Results
+
 <table class="tg">
   <tr>
     <th class="tg-s6z2" rowspan="3">index</th>
     <th class="tg-s6z2" colspan="2">preparation</th>
     <th class="tg-s6z2" rowspan="3">algorithm</th>
     <th class="tg-s6z2" rowspan="3">distance</th>
-    <th class="tg-s6z2" colspan="10">results</th>
+    <th class="tg-s6z2" colspan="10">metrics</th>
   </tr>
   <tr>
     <td class="tg-s6z2" rowspan="2">offset &amp;<br>  amplitude</td>
     <td class="tg-s6z2" rowspan="2">detrend</td>
     <td class="tg-s6z2" colspan="2">chi square<br>  contingency</td>
     <td class="tg-s6z2" colspan="2">G-Test</td>
-    <td class="tg-s6z2" rowspan="2">ADI</td>
+    <td class="tg-s6z2" rowspan="2">ARI</td>
     <td class="tg-s6z2" rowspan="2">homogeneity</td>
     <td class="tg-s6z2" rowspan="2">completeness</td>
-    <td class="tg-s6z2" rowspan="2">v measure</td>
+    <td class="tg-s6z2" rowspan="2">v_measure</td>
     <td class="tg-s6z2" rowspan="2">AMI</td>
-    <td class="tg-baqh" rowspan="2">FM score</td>
+    <td class="tg-baqh" rowspan="2">FM_score</td>
   </tr>
   <tr>
     <td class="tg-s6z2">X^2</td>
@@ -162,3 +146,13 @@ Dillinger is currently extended with the following plugins. Instructions on how 
     <td class="tg-yw4l">0.1737</td>
   </tr>
 </table>
+
+## TODO
+  - Include silhouette coefficient values in the table
+
+
+Python packages used right now:
+  - pandas
+  - numpy
+  - scikit-learn
+  - scipy

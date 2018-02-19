@@ -28,8 +28,8 @@ Moving on the goal is to improving the ARI score and the other metrics. Therefor
   <tr>
     <td class="tg-s6z2" rowspan="2">offset &amp;<br>  amplitude</td>
     <td class="tg-s6z2" rowspan="2">detrend</td>
-    <td class="tg-s6z2" colspan="2">chi square<br>  contingency</td>
-    <td class="tg-s6z2" colspan="2">G-Test</td>
+    <td class="tg-s6z2" colspan="2"><a href="https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test">chi square<br>  contingency</a></td>
+    <td class="tg-s6z2" colspan="2"><a href="https://en.wikipedia.org/wiki/G-test">G-test</a></td>
     <td class="tg-s6z2" rowspan="2"><a href="https://en.wikipedia.org/wiki/Rand_index#Adjusted_Rand_index">ARI</a></td>
     <td class="tg-s6z2" rowspan="2"><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.homogeneity_score.html#sklearn.metrics.homogeneity_score">homogeneity</a></td>
     <td class="tg-s6z2" rowspan="2"><a href="http://scikit-learn.org/stable/modules/generated/sklearn.metrics.completeness_score.html#sklearn.metrics.completeness_score">completeness</a></td>
